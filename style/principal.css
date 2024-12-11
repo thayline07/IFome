@@ -1,9 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Cookie&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
 :root {
     --verde: #49B251;
     --azul: #6FBED0;
     --laranja: #FCA451;
     --vermelho: #FC6851;
     --amarelo: #FCD351;
+    --fonte-logotipo: "Cookie", cursive;
+    --fonte-principal: "Montserrat", sans-serif;
 }
 
 .cabecalho {
@@ -13,4 +17,8 @@
 
 .cabecalho > ul {
     display: flex;
+}
+
+.cabecalho-titulo {
+
 }
