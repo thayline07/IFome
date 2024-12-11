@@ -1,0 +1,16 @@
+:root {
+    --verde: #49B251;
+    --azul: #6FBED0;
+    --laranja: #FCA451;
+    --vermelho: #FC6851;
+    --amarelo: #FCD351;
+}
+
+.cabecalho {
+    background-color: var(--verde);
+    display: flex;
+}
+
+.cabecalho > ul {
+    display: flex;
+}
