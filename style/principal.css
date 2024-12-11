@@ -13,12 +13,46 @@
 .cabecalho {
     background-color: var(--verde);
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem 1rem 2rem;
 }
 
 .cabecalho > ul {
     display: flex;
+    column-gap: 2rem;
+    margin-right: .7rem;
+}
+
+.item-img {
+    width: 2rem;
 }
 
 .cabecalho-titulo {
-
+    font-family: var(--fonte-logotipo);
+    color: #fff;
+    font-size: 56px;
 }
+
+.cabecalho-input {
+    background-color: #fff;
+    height: 2.5rem;
+    width: 20rem;
+    border-radius: 20px;
+    justify-content: center;
+}
+
+.cabecalho-pesquisar {
+    box-shadow: 0 0 0 0;
+    border: 0 none;
+    outline: 0;
+    position: fixed;
+    width: 18rem;
+    height: 2.4rem;
+    border-radius: 20px;
+}
+
+.cabecalho-input > img {
+    position: absolute;
+}
+
