@@ -11,7 +11,8 @@
 }
 
 body {
-    background-image: repeating-linear-gradient(to right, var(--amarelo) 60%, var(--laranja) 40%);
+    background-image: url(../src/background.jpg);
+    background-size: 100%;
     font-family: var(--fonte-principal);
 }
 
@@ -21,6 +22,7 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 1rem 2rem 1rem 2rem;
+    box-shadow: 10px 1px 5px var(--laranja);
 }
 
 .cabecalho > ul {
