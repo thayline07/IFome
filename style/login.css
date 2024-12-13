@@ -17,7 +17,7 @@ body {
     justify-content: center;
     font-family: var(--fonte-principal);
     height: 100vh;
-    background-color: var(--laranja);
+    background-image: url(../src/background.jpg);
     
 
 }
@@ -32,12 +32,18 @@ main {
 }
 
 h1 {
-    font-size: 48px;
+    font-size: 76px;
 
 }
 
 h2 {
     font-size: 30px;
+}
+
+h3 {
+    font-family: var(--fonte-logotipo);
+    font-size: 3em;
+    text-align: center;
 }
 
 .destaque {
@@ -47,21 +53,23 @@ h2 {
 .container__login {
     display: flex;
     flex-direction: column;
-    gap: 1em;
     background-color: var(--verde);
-    
+    height: 70%;
     padding: 3em 4em;
     border-radius: 30px;
+    justify-content: space-around;
     align-items: center;
 }
 
 input {
     padding: 0.5em 1em;
     border-radius: 12px;
-    border: none
+    border: none;
+    font-size: 20px;
 }
 
 .login_buttons {
     display: flex;
-    gap: 0.5em
+    gap: 0.5em;
+    align-items: center;
 }
