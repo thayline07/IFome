@@ -39,6 +39,7 @@ body {
     font-family: var(--fonte-logotipo);
     color: #fff;
     font-size: 56px;
+    text-decoration: none;
 }
 
 .cabecalho-input {
