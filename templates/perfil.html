@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ifome - Meu Perfil</title>
-    <link rel="stylesheet" href="../style/perfil.css">
-    <link rel="stylesheet" href="../style/reset.css">
+    <link rel="stylesheet" href="../static/perfil.css">
+    <link rel="stylesheet" href="../static/reset.css">
     <script defer>
         document.addEventListener('DOMContentLoaded', () => {
     const botao = document.querySelector('.perfil-botao-add');
@@ -32,31 +32,29 @@
 </head>
 <body>
     <header class="cabecalho">
-        <a href="./principal.html" class="cabecalho-titulo">Ifome</a>
+        <a href="{{ url_for('principal') }}" class="cabecalho-titulo">Ifome</a>
         <ul class="cabecalho-lista">
             <li class="cabecalho-item">
-                <a href="" class="item">
-                    <img src="../src/perfil.svg" alt="perfil" class="item-img">
+                <a href="{{ url_for('perfil') }}" class="item">
+                    <img src="../static/img/perfil.svg" alt="perfil" class="item-img">
                 </a>
             </li>
             <li class="cabecalho-item">
-                <a href="" class="item">
-                    <img src="../src/sair.svg" alt="sair" class="item-img">
+                <a href="{{ url_for('login') }}" class="item">
+                    <img src="../static/img/sair.svg" alt="sair" class="item-img">
                 </a>
             </li>
         </ul>
     </header>
     <section class="perfil">
         <h1 class="perfil-titulo">Meu Perfil</h1>
-        <img src="../src/perfil-icone.png" alt="" class="perfil-foto">
+        <img src="../static/img/perfil-icone.png" alt="" class="perfil-foto">
         <div class="perfil-texto">
             <p class="perfil-email">E-mail</p>
             <p class="email">abc@gmail.com</p>
-            <p class="perfil-telefone">Telefone</p>
-            <p class="telefone">00000-0000</p>
         </div>
         <button class="perfil-botao-add">
-            <img src="../src/adicionar.svg" alt="" class="perfil-botao-img">
+            <img src="../static/img/adicionar.svg" alt="" class="perfil-botao-img">
             <p class="perfil-botao-texto">Adicionar produto</p>
         </button>
         <form action="" class="adicionar-produto desativado">

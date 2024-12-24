@@ -17,7 +17,7 @@ body {
     justify-content: center;
     font-family: var(--fonte-principal);
     height: 100vh;
-    background-image: url(../src/background.jpg);
+    background-image: url(../static/img/background.jpg);
     
 
 }

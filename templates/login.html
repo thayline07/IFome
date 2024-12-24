@@ -4,21 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login na IFome</title>
-    <link rel="stylesheet" href="./style/login.css">
+    <link rel="stylesheet" href="./static/login.css">
 
 </head>
 <body>
     <main>
-        <div class="container__cadastro">
+        <form method="post" class="container__cadastro">
             <h2>Bem vindo de volta!</h2>
             <input type="email" name="" id="">
             <input type="password" name="" id="">
             <div class="login_buttons">
                 <input type="submit" value="Entrar">
-                <a href="#">Esqueceu sua senha?</a>
+                <a href="{{ url_for('cadastro') }}">Ainda não tem conta? Cadastre-se!</a>
             </div>
 
-        </div>
+        </form>
         <div class="container__textos">
             <h1>Faça seu <strong>Login</strong></h1>
         </div>

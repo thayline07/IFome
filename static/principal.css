@@ -11,7 +11,7 @@
 }
 
 body {
-    background-image: url(../src/background.jpg);
+    background-image: url(../static/img/background.jpg);
     background-size: 100%;
     font-family: var(--fonte-principal);
 }

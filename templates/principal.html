@@ -4,25 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ifome - Página Principal</title>
-    <link rel="stylesheet" href="../style/reset.css">
-    <link rel="stylesheet" href="../style/principal.css">
+    <link rel="stylesheet" href="../static/reset.css">
+    <link rel="stylesheet" href="../static/principal.css">
 </head>
 <body>
     <header class="cabecalho">
-        <a href="./principal.html" class="cabecalho-titulo">Ifome</a>
+        <a href="{{ url_for('principal') }}" class="cabecalho-titulo">Ifome</a>
         <form class="cabecalho-input">
             <input type="text" placeholder="Buscar..." name="" id="" class="cabecalho-pesquisar">
-            <img src="../src/pesquisar.svg" alt="">
+            <img src="../static/img/pesquisar.svg" alt="">
         </form>
         <ul class="cabecalho-lista">
             <li class="cabecalho-item">
-                <a href="../pages/perfil.html" class="item">
-                    <img src="../src/perfil.svg" alt="perfil" class="item-img">
+                <a href="{{ url_for('perfil') }}" class="item">
+                    <img src="../static/img/perfil.svg" alt="perfil" class="item-img">
                 </a>
             </li>
             <li class="cabecalho-item">
-                <a href="" class="item">
-                    <img src="../src/sair.svg" alt="sair" class="item-img">
+                <a href="{{ url_for('login') }}" class="item">
+                    <img src="../static/img/sair.svg" alt="sair" class="item-img">
                 </a>
             </li>
         </ul>
