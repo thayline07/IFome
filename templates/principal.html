@@ -6,6 +6,7 @@
     <title>Ifome - Página Principal</title>
     <link rel="stylesheet" href="../static/reset.css">
     <link rel="stylesheet" href="../static/principal.css">
+    <link rel="stylesheet" href=".css">
 </head>
 <body>
     <header class="cabecalho">
@@ -31,7 +32,12 @@
     <section class="principal">
         <ul class="principal-produtos">
             <li class="produto">
-                
+                <img src="" alt="imagem do produto" class="produto-imagem" width="50px" height="50px">
+                <h4 class="produto-nome">Nome</h4>
+                <textarea id="descricao" name="descricao" rows="2">
+                    descricao
+                </textarea>
+                <a href="{{ url_for('produto')}}">Ver</a>
             </li>
         </ul>
     </section>

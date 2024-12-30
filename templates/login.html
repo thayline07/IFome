@@ -11,11 +11,22 @@
     <main>
         <form method="post" class="container__cadastro">
             <h2>Bem vindo de volta!</h2>
-            <input type="email" name="" id="">
-            <input type="password" name="" id="">
+            <input type="email" name="email" id="">
+            <input type="password" name="password" id="">
+            
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    <ul>
+                    {% for message in messages %}
+                        <li>{{ message }}</li>
+                    {% endfor %}
+                    </ul>
+                {% endif %}
+            {% endwith %}
+
             <div class="login_buttons">
                 <input type="submit" value="Entrar">
-                <a href="{{ url_for('cadastro') }}">Ainda não tem conta? Cadastre-se!</a>
+                <a href="{{ url_for('cadastrar') }}">Ainda não tem conta? Cadastre-se!</a>
             </div>
 
         </form>

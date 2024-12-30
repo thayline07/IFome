@@ -18,8 +18,10 @@ body {
     font-family: var(--fonte-principal);
     height: 100vh;
     background-image: url(../static/img/background.jpg);
-    
+}
 
+li {
+    list-style: none;
 }
 
 main {

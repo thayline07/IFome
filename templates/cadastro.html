@@ -8,15 +8,26 @@
 </head>
 <body>
     <main>
-        <form method="post" action="/cadastro" class="container__login">
+        <form method="post" action="/cadastrar" class="container__login">
             <div class="textos">
                 <h3>IFome</h3>
                 <h2>Bem vindo!</h2>
             </div>
-            <input type="email" placeholder="Seu email" name="" id="">
-            <input type="password" name="" placeholder="Sua senha" id="">
+            <input type="email" placeholder="Seu email" name="email" id="">
+            <input type="password" name="password" placeholder="Sua senha" id="">
+
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    <ul>
+                    {% for message in messages %}
+                        <li>{{ message }}</li>
+                    {% endfor %}
+                    </ul>
+                {% endif %}
+            {% endwith %}
+
             <div class="login_buttons">
-                <input type="submit" value="Entrar">
+                <input type="submit" value="Cadastrar">
                 <a href="#">Fazer login</a>
             </div>
         </form>
