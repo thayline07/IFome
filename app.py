@@ -32,6 +32,7 @@ def criar_tabelas():
     cursor.execute('''
         CREATE TABLE IF NOT EXISTS produtos (
             nome TEXT NOT NULL PRIMARY KEY,
+            preco TEXT,
             imagem BLOB,
             descricao TEXT UNIQUE NOT NULL,
             link TEXT NOT NULL
@@ -64,37 +65,34 @@ def perfil():
         return render_template("perfil.html")
     elif request.method == 'POST':
         nome = request.form.get('nome')
+        preco = request.form.get('preco')
         descricao = request.form.get('descricao')
         link = request.form.get('link')
         imagem = request.files.get('imagem')
 
         print(f"Nome: {nome}, Descrição: {descricao}, Link: {link}, Imagem: {imagem.filename if imagem else 'Nenhuma'}")
 
-        if not nome or not imagem or not descricao or not link:
+        if not nome or not preco or not imagem or not descricao or not link:
             flash("Todos os campos são obrigatórios!")
             return redirect(url_for('perfil'))
 
-        if imagem:
-            imagem_binaria = imagem.read()  
-        else:
-            flash("Imagem inválida!")
-            return redirect(url_for('perfil'))
+        # if imagem:
+        #     imagem_binaria = imagem.read()  
+        # else:
+        #     flash("Imagem inválida!")
+        #     return redirect(url_for('perfil'))
 
-        try:
-            conexao = conectar()
-            cursor = conexao.cursor()
-            cursor.execute('''
-                INSERT INTO produtos (nome, imagem, descricao, link)
-                VALUES (?, ?, ?, ?)
-            ''', (nome, imagem_binaria, descricao, link))
-            conexao.commit()
-            conexao.close()
+        conexao = conectar()
+        cursor = conexao.cursor()
+        cursor.execute('''
+            INSERT INTO produtos (nome, preco, imagem, descricao, link)
+            VALUES (?, ?, ?, ?, ?)
+        ''', (nome, preco, imagem, descricao, link))
+        conexao.commit()
+        conexao.close()
 
-            flash("Produto adicionado com sucesso!")
-            return redirect(url_for('perfil'))
-        except sqlite3.IntegrityError:
-            flash("Erro: Produto já cadastrado.")
-            return redirect(url_for('perfil'))
+        flash("Produto adicionado com sucesso!")
+        return redirect(url_for('principal'))
 
 
 
@@ -106,23 +104,23 @@ def principal():
     produtos = cursor.execute('SELECT * FROM produtos').fetchall()
     conexao.close()
 
-    produtos_com_imagens = []
-    for produto in produtos:
-        nome, imagem_blob, descricao, link = produto
-        if imagem_blob:
-            imagem_base64 = base64.b64encode(imagem_blob).decode('utf-8')
-            imagem_data_uri = f"data:image/jpeg;base64,{imagem_base64}"
-        else:
-            imagem_data_uri = None
+    # produtos_com_imagens = []
+    # for produto in produtos:
+    #     nome, imagem_blob, descricao, link = produto
+    #     if imagem_blob:
+    #         imagem_base64 = base64.b64encode(imagem_blob).decode('utf-8')
+    #         imagem_data_uri = f"data:image/jpeg;base64,{imagem_base64}"
+    #     else:
+    #         imagem_data_uri = None
 
-        produtos_com_imagens.append({
-            "nome": nome,
-            "imagem": imagem_data_uri,
-            "descricao": descricao,
-            "link": link
-        })
+    #     produtos_com_imagens.append({
+    #         "nome": nome,
+    #         "imagem": imagem_data_uri,
+    #         "descricao": descricao,
+    #         "link": link
+    #     })
 
-    return render_template("principal.html", produtos=produtos_com_imagens)
+    return render_template("principal.html", produtos=produtos)
 
 
 # Página do produto

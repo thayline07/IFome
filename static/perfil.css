@@ -128,7 +128,7 @@ input::-webkit-input-placeholder {
     color: var(--verde);
 }
 
-.produto-nome {
+.produto-nome, .produto-preco {
     width: 20rem;
     height: 2rem;
     border-radius: 20px;

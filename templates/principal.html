@@ -31,17 +31,36 @@
 
     <section class="principal">
         <ul class="principal-produtos">
-            {% for produto in produtos %}
-                <li class="produto">
-                    {% if produto.imagem %}
-                        <img src="{{ produto.imagem }}" alt="Imagem do Produto" class="produto-imagem" style="width: 150px; height: 150px;">
-                    {% else %}
-                        <img src="../static/img/background.jpg" alt="Imagem Padrão" class="produto-imagem" style="width: 150px; height: 150px;">
-                    {% endif %}
-                    <h4 class="produto-nome">{{ produto.nome }}</h4>
-                    <a class="produto-botao" href="{{ produto.link }}">Ver</a>
-                </li>
-            {% endfor %}
+            <li class="produto">
+                <h4 class="produto-nome">brigadeiro</h4>
+                <h4 class="produto-preco">5,00</h4>
+                <a class="produto-botao" href="#">Ver</a>
+            </li>
+            <li class="produto">
+                <h4 class="produto-nome">pao</h4>
+                <h4 class="produto-preco">5,00</h4>
+                <a class="produto-botao" href="#">Ver</a>
+            </li>
+            <li class="produto">
+                <h4 class="produto-nome">carne</h4>
+                <h4 class="produto-preco">5,00</h4>
+                <a class="produto-botao" href="#">Ver</a>
+            </li>
+            <li class="produto">
+                <h4 class="produto-nome">pao</h4>
+                <h4 class="produto-preco">5,00</h4>
+                <a class="produto-botao" href="#">Ver</a>
+            </li>
+            <li class="produto">
+                <h4 class="produto-nome">pao</h4>
+                <h4 class="produto-preco">5,00</h4>
+                <a class="produto-botao" href="#">Ver</a>
+            </li>
+            <li class="produto">
+                <h4 class="produto-nome">pao</h4>
+                <h4 class="produto-preco">5,00</h4>
+                <a class="produto-botao" href="#">Ver</a>
+            </li>
         </ul>
     </section>
 </body>

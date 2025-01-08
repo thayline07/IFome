@@ -10,25 +10,23 @@
     --fonte-principal: "Montserrat", sans-serif;
 }
 
-
 .principal-produtos {
-    margin: 3rem 0 3rem 3rem;
+    margin: 3rem 0 0 3rem;
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    flex-wrap: wrap;
 }
 
 .produto {
     background-color: rgba(255, 255, 255, 0.3);
-    width: 240px;
-    height: 300px;
+    width: 220px;
+    height: 150px;
     background-size: contain;
-    position: absolute;
     display: flex;
     flex-direction: column;
     align-items: center;
     border-radius: 20px;
-}
-
-.produto-imagem {
-    margin: 2rem 0 .5rem 0;
 }
 
 .produto-nome {
@@ -36,12 +34,19 @@
     font-family: var(--fonte-principal);
     font-size: 24px;
     color: #fff;
-    margin-right: 4.5rem;
+    margin-top: 1rem;
+}
+
+.produto-preco {
+    color: #fff;
+    margin: 1rem 0 0 0; 
+    font-size: 24px;
+    font-family: var(--fonte-principal);
 }
 
 .produto-botao {
     text-decoration: none;
-    margin: 2rem 0;
+    margin: 1rem 0 2rem 0;
     padding: .7rem 4rem;
     background-color: var(--verde);
     color: #fff;
