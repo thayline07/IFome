@@ -11,8 +11,8 @@
     <main>
         <form method="POST" action="/login" class="container__cadastro">
             <h2>Bem vindo de volta!</h2>
-            <input type="email" name="email" id="email">
-            <input type="password" name="password" id="password">
+            <input type="email" placeholder="Seu email" name="email" id="email">
+            <input type="password" placeholder="Sua senha" name="password" id="password">
             
             {% with messages = get_flashed_messages() %}
                 {% if messages %}
@@ -26,12 +26,12 @@
 
             <div class="login_buttons">
                 <input type="submit" value="Entrar">
-                <a href="{{ url_for('cadastrar') }}">Ainda não tem conta? Cadastre-se!</a>
+                <a class="fazer-cadastro-link" href="{{ url_for('cadastrar') }}">Ainda não tem conta? <br> Cadastre-se!</a>
             </div>
 
         </form>
         <div class="container__textos">
-            <h1>Faça seu <strong>Login</strong></h1>
+            <h1>Faça seu <br> <strong>Login</strong></h1>
         </div>
     </main>
     
