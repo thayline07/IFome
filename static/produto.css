@@ -1,5 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Cookie&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+    --verde: #49B251;
+    --azul: #6FBED0;
+    --laranja: #FCA451;
+    --vermelho: #FC6851;
+    --amarelo: #FCD351;
+    --fonte-logotipo: "Cookie", cursive;
+    --fonte-principal: "Montserrat", sans-serif;
+}
+
+
+.principal-produtos {
+    margin: 3rem 0 3rem 3rem;
+}
+
 .produto {
-    width: 4rem;
-    height: 7rem;
-    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.3);
+    width: 240px;
+    height: 300px;
+    background-size: contain;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 20px;
+}
+
+.produto-imagem {
+    margin: 2rem 0 .5rem 0;
+}
+
+.produto-nome {
+    font-weight: 600;
+    font-family: var(--fonte-principal);
+    font-size: 24px;
+    color: #fff;
+    margin-right: 4.5rem;
+}
+
+.produto-botao {
+    text-decoration: none;
+    margin: 2rem 0;
+    padding: .7rem 4rem;
+    background-color: var(--verde);
+    color: #fff;
+    border-radius: 10px;
+}
+
+.produto-botao:hover {
+    background-color: var(--vermelho);
 }

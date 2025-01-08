@@ -9,10 +9,10 @@
 </head>
 <body>
     <main>
-        <form method="post" class="container__cadastro">
+        <form method="POST" action="/login" class="container__cadastro">
             <h2>Bem vindo de volta!</h2>
-            <input type="email" name="email" id="">
-            <input type="password" name="password" id="">
+            <input type="email" name="email" id="email">
+            <input type="password" name="password" id="password">
             
             {% with messages = get_flashed_messages() %}
                 {% if messages %}
