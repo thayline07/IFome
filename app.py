@@ -3,6 +3,7 @@ import sqlite3
 from jinja2 import Template, Environment, FileSystemLoader
 import base64
 import logging
+from urllib.parse import quote, unquote
 
 
 logging.basicConfig(level=logging.DEBUG)
@@ -68,32 +69,27 @@ def perfil():
         preco = request.form.get('preco')
         descricao = request.form.get('descricao')
         link = request.form.get('link')
-        imagem = request.files.get('imagem')
+        imagem = request.files.get('imagem') 
 
-        print(f"Nome: {nome}, Descrição: {descricao}, Link: {link}, Imagem: {imagem.filename if imagem else 'Nenhuma'}")
-
-        if not nome or not preco or not imagem or not descricao or not link:
-            flash("Todos os campos são obrigatórios!")
-            return redirect(url_for('perfil'))
-
-        # if imagem:
-        #     imagem_binaria = imagem.read()  
-        # else:
-        #     flash("Imagem inválida!")
-        #     return redirect(url_for('perfil'))
+        if imagem:
+            imagem_data = imagem.read()
+            imagem_base64 = base64.b64encode(imagem_data).decode('utf-8')
+        else:
+            imagem_base64 = None
 
         conexao = conectar()
         cursor = conexao.cursor()
-        cursor.execute('''
-            INSERT INTO produtos (nome, preco, imagem, descricao, link)
-            VALUES (?, ?, ?, ?, ?)
-        ''', (nome, preco, imagem, descricao, link))
-        conexao.commit()
-        conexao.close()
+        try:
+            cursor.execute('''
+                INSERT INTO produtos (nome, preco, imagem, descricao, link)
+                VALUES (?, ?, ?, ?, ?)
+            ''', (nome, preco, imagem_base64, descricao, link))
+            conexao.commit()
+        finally:
+            conexao.close()
 
-        flash("Produto adicionado com sucesso!")
-        return redirect(url_for('principal'))
-
+        return redirect(url_for('principal.html'))
+    return render_template('principal.html')
 
 
 # Principal 2
@@ -101,32 +97,29 @@ def perfil():
 def principal():
     conexao = conectar()
     cursor = conexao.cursor()
-    produtos = cursor.execute('SELECT * FROM produtos').fetchall()
+    cursor.execute('SELECT nome, preco, imagem, descricao, link FROM produtos')
+    produtos = cursor.fetchall()
     conexao.close()
 
-    # produtos_com_imagens = []
-    # for produto in produtos:
-    #     nome, imagem_blob, descricao, link = produto
-    #     if imagem_blob:
-    #         imagem_base64 = base64.b64encode(imagem_blob).decode('utf-8')
-    #         imagem_data_uri = f"data:image/jpeg;base64,{imagem_base64}"
-    #     else:
-    #         imagem_data_uri = None
-
-    #     produtos_com_imagens.append({
-    #         "nome": nome,
-    #         "imagem": imagem_data_uri,
-    #         "descricao": descricao,
-    #         "link": link
-    #     })
-
-    return render_template("principal.html", produtos=produtos)
+    return render_template('principal.html', produtos=produtos)
 
 
 # Página do produto
-@app.route('/produto')
-def produto():
-    return render_template("produto.html")
+@app.route('/produto/<nome>')
+def produto(nome):
+    nome = unquote(nome)
+    conexao = conectar()
+    cursor = conexao.cursor()
+    
+    cursor.execute('SELECT nome, preco, imagem, descricao, link FROM produtos WHERE nome = ?', (nome,))
+    produto = cursor.fetchone()
+    conexao.close()
+    
+    if produto:
+        return render_template('produto.html', produto=produto)
+    else:
+        return redirect(url_for('principal'))
+
 
 
 # Login

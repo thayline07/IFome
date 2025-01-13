@@ -6,7 +6,7 @@
     <title>Ifome - Página Principal</title>
     <link rel="stylesheet" href="../static/reset.css">
     <link rel="stylesheet" href="../static/principal.css">
-    <link rel="stylesheet" href=".css">
+    <link rel="stylesheet" href="../static/produto.css">
 </head>
 <body>
     <header class="cabecalho">
@@ -28,6 +28,15 @@
             </li>
         </ul>
     </header>
+    <section class="produto-detalhe">
+        {% if produto[2] %}
+        <img class="detalhe-imagem" src="data:image/png;base64,{{ produto[2] }}" alt="{{ produto[0] }}">
+        {% endif %}
+        <h1 class="detalhe-nome">{{ produto[0] }}</h1>
+        <p class="detalhe-preco">{{ produto[1] }}</p>
+        <p class="detalhe-descricao">{{ produto[3] }}</p>
+        <a href="{{ produto[4] }}" target="_blank" class="produto-botao">Comprar agora</a>
+    </section>
 
 </body>
 </html>

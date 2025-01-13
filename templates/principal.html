@@ -7,12 +7,13 @@
     <link rel="stylesheet" href="../static/reset.css">
     <link rel="stylesheet" href="../static/principal.css">
     <link rel="stylesheet" href="../static/produto.css">
+    <script src="../static/js/principal.js" defer></script>
 </head>
 <body>
     <header class="cabecalho">
         <a href="{{ url_for('principal') }}" class="cabecalho-titulo">Ifome</a>
         <form class="cabecalho-input">
-            <input type="text" placeholder="Buscar..." name="" id="" class="cabecalho-pesquisar">
+            <input type="text" placeholder="Buscar..." name="barra-de-pesquisa" id="barra-de-pesquisa" class="cabecalho-pesquisar">
             <img src="../static/img/pesquisar.svg" alt="">
         </form>
         <ul class="cabecalho-lista">
@@ -30,38 +31,19 @@
     </header>
 
     <section class="principal">
-        <ul class="principal-produtos">
-            <li class="produto">
-                <h4 class="produto-nome">brigadeiro</h4>
-                <h4 class="produto-preco">5,00</h4>
-                <a class="produto-botao" href="#">Ver</a>
-            </li>
-            <li class="produto">
-                <h4 class="produto-nome">pao</h4>
-                <h4 class="produto-preco">5,00</h4>
-                <a class="produto-botao" href="#">Ver</a>
-            </li>
-            <li class="produto">
-                <h4 class="produto-nome">carne</h4>
-                <h4 class="produto-preco">5,00</h4>
-                <a class="produto-botao" href="#">Ver</a>
-            </li>
-            <li class="produto">
-                <h4 class="produto-nome">pao</h4>
-                <h4 class="produto-preco">5,00</h4>
-                <a class="produto-botao" href="#">Ver</a>
-            </li>
-            <li class="produto">
-                <h4 class="produto-nome">pao</h4>
-                <h4 class="produto-preco">5,00</h4>
-                <a class="produto-botao" href="#">Ver</a>
-            </li>
-            <li class="produto">
-                <h4 class="produto-nome">pao</h4>
-                <h4 class="produto-preco">5,00</h4>
-                <a class="produto-botao" href="#">Ver</a>
-            </li>
-        </ul>
+        <div class="principal-produtos">
+            {% for produto in produtos %}
+            <div class="produto">
+                {% if produto[2] %}
+                <img class="produto-imagem" src="data:image/png;base64,{{ produto[2] }}" alt="Imagem do produto">
+                {% endif %}
+                <h3 class="produto-nome">{{ produto[0] }}</h3>
+                <p class="produto-preco">Preço: {{ produto[1] }}</p>
+                <a class="produto-botao" href="{{ url_for('produto', nome=produto[0] | urlencode) }}">Comprar</a>
+
+            </div>
+            {% endfor %}
+        </div>
     </section>
 </body>
 </html>

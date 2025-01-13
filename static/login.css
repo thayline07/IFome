@@ -11,6 +11,38 @@
 }
 
 
+@keyframes mudarCor1 {
+    30% {
+        color: #000;
+    }
+    60% {
+        color: var(--verde);
+    }
+    100% {
+        color: #000;
+    }
+}
+
+@keyframes mudarCor2 {
+    30% {
+        color: var(--verde);
+    }
+    60% {
+        color: #000;
+    }
+    100% {
+        color: var(--verde);
+    }
+}
+
+.titulo-login {
+    animation: mudarCor1 4s infinite;
+}
+
+.destacado {
+    animation: mudarCor2 4s infinite;
+}
+
 body {
     display: flex;
     align-items: center;
@@ -35,7 +67,6 @@ main {
 
 h1 {
     font-size: 76px;
-
 }
 
 h2 {
@@ -56,7 +87,7 @@ h3 {
     display: flex;
     flex-direction: column;
     background-color: var(--verde);
-    height: 70%;
+    height: 100%;
     padding: 3em 4em;
     border-radius: 30px;
     justify-content: space-around;
@@ -79,8 +110,10 @@ input {
 
 .fazer-cadastro-link {
     text-decoration: none;
-    color: white
-
+    color: white;
+    align-self: center;
+    margin-bottom: .5rem;
+    font-size: 14px;
 }
 
 .fazer-cadastro-link:hover {

@@ -48,25 +48,28 @@
     </header>
     <section class="perfil">
         <h1 class="perfil-titulo">Meu Perfil</h1>
+
         <img src="../static/img/perfil-icone.png" alt="" class="perfil-foto">
+
         <div class="perfil-texto">
             <p class="perfil-email">E-mail</p>
-            <p class="email">abc@gmail.com</p>
+            <p class="email">thaylinesimioni@gmail.com</p>
         </div>
+
         <button class="perfil-botao-add">
             <img src="../static/img/adicionar.svg" alt="" class="perfil-botao-img">
             <p class="perfil-botao-texto">Adicionar produto</p>
         </button>
-        <form action="/perfil" method="post" class="adicionar-produto desativado" enctype="multipart/form-data">
+
+        <form action="/perfil" autocomplete="off" method="post" class="adicionar-produto desativado" enctype="multipart/form-data">
             <input required type="text" name="nome" id="nome-do-produto" class="produto-nome" placeholder="Nome do Produto">
             <input type="text" name="preco" id="preco-do-produto" class="produto-preco" placeholder="Preço">
             <p class="texto-imagem-produto">Imagem do produto:</p>
-            <input required type="file" name="imagem" id="imagem-do-produto" class="produto-imagem">
+            <input required type="file" name="imagem" id="imagem-do-produto" accept="image/*" class="produto-imagem">
             <input required type="text" name="descricao" id="descricao-do-produto" class="produto-descricao" placeholder="Descrição do Produto">
             <input required type="url" name="link" id="link-do-whatsapp" class="produto-link" placeholder="Link do Whatsapp">
             <input type="submit" value="Criar" id="criar-produto" class="botao-criar-produto">
 
-            
         </form>
     
     </section>

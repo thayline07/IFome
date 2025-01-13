@@ -9,7 +9,7 @@
 </head>
 <body>
     <main>
-        <form method="POST" action="/login" class="container__cadastro">
+        <form method="POST" autocomplete="off" action="/login" class="container__cadastro">
             <h2>Bem vindo de volta!</h2>
             <input type="email" placeholder="Seu email" name="email" id="email">
             <input type="password" placeholder="Sua senha" name="password" id="password">
@@ -24,14 +24,13 @@
                 {% endif %}
             {% endwith %}
 
-            <div class="login_buttons">
+                <a class="fazer-cadastro-link" href="{{ url_for('cadastrar') }}">Ainda não tem conta? Cadastre-se!</a>
                 <input type="submit" value="Entrar">
-                <a class="fazer-cadastro-link" href="{{ url_for('cadastrar') }}">Ainda não tem conta? <br> Cadastre-se!</a>
-            </div>
+
 
         </form>
         <div class="container__textos">
-            <h1>Faça seu <br> <strong>Login</strong></h1>
+            <h1 class="titulo-login">Faça seu <br> <strong class="destacado">Login</strong></h1>
         </div>
     </main>
     

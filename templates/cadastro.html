@@ -8,7 +8,7 @@
 </head>
 <body>
     <main>
-        <form method="post" action="/cadastrar" class="container__login">
+        <form method="post" autocomplete="off" action="/cadastrar" class="container__login">
             <div class="textos">
                 <h3>IFome</h3>
                 <h2>Bem vindo!</h2>
@@ -27,13 +27,13 @@
             {% endwith %}
 
             <div class="cadastro_buttons">
-                <a class="fazer-cadastro-link" href="#">Já tenho conta</a>
+                <a class="fazer-cadastro-link" href="{{ url_for('login') }}">Já tenho conta</a>
 
                 <input type="submit" value="Cadastrar">
             </div>
         </form>
         <div class="container__textos">
-            <h1>Faça seu <br> <span class="destaque">Cadastro</span></h1>
+            <h1 class="titulo-login">Faça seu <br> <span class="destaque destacado">Cadastro</span></h1>
         </div>
     </main>
     
