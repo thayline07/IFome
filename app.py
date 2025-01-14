@@ -88,7 +88,7 @@ def perfil():
         finally:
             conexao.close()
 
-        return redirect(url_for('principal.html'))
+        return redirect(url_for('principal'))
     return render_template('principal.html')
 
 
